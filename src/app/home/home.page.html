@@ -1,28 +1,11 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Búsqueda de películas
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>IMDB Movie Search</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Búsqueda</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <div id="container">
-
-    <ion-label>Resultados:</ion-label>
-
-    <ion-list> 
-      <ion-item button *ngFor="let item of (results | async)"> 
-        <ion-label text-wrap>
-          {{ item.Title }} ({{ item.Year }})
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
+  <ion-searchbar animated="true" [(ngModel)]="title" placeholder="Movie"></ion-searchbar>
+    <ion-button (click)="goToResults()" color="medium">Search</ion-button>
 </ion-content>

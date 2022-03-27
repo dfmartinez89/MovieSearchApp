@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MovieService } from 'src/app/services/movie.service';
 
@@ -8,15 +9,13 @@ import { MovieService } from 'src/app/services/movie.service';
   styleUrls: ['./movies.page.scss'],
 })
 export class MoviesPage implements OnInit {
+  title: string;
   results: Observable<any>;
-  title: string = '';
 
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-  }
-
-  searchMovieByTitle() {
+    this.title = this.activatedRoute.snapshot.paramMap.get("id");
     this.results = this.movieService.searchMovie(this.title);
   }
 }

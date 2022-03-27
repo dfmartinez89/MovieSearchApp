@@ -1,21 +1,20 @@
 <ion-header>
   <ion-toolbar color="tertiary">
     <ion-title>IMDB Movie Search</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-searchbar animated="true" [(ngModel)]="title" placeholder="Movie" ></ion-searchbar>
-
-  <ion-button (click)="searchMovieByTitle()" color="medium">Search</ion-button>
-
-  <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'movies', item.imdbID]">
+  <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/movies/details',item.imdbID]">
     <ion-avatar slot="start">
       <img [src]="item.Poster" alt="">
     </ion-avatar>
 
-    <ion-label>
+    <ion-label text-wrap>
       <h3>{{ item.Title }}</h3>
       {{ item.Year }}
     </ion-label>

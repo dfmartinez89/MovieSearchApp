@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { ModalController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class HomePage implements OnInit {
   title: string;
-  results: Observable<any>;
-  constructor() {}
+
+  constructor(public navCtrl: NavController) {}
 
   ngOnInit() {}
+
+ goToResults() {
+   this.navCtrl.navigateForward(['/movies', this.title])
+  }
 }
