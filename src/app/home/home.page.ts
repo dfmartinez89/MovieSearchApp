@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FilmsService } from '../services/films.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ import { FilmsService } from '../services/films.service';
 export class HomePage implements OnInit {
   title: string;
   results: Observable<any>;
-  constructor(private filmsService: FilmsService) {}
+  constructor() {}
 
   ngOnInit() {}
 }
