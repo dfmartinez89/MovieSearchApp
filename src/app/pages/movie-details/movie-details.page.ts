@@ -21,5 +21,4 @@ export class MovieDetailsPage implements OnInit {
       this.information = result;
     });
   }
-
 }
