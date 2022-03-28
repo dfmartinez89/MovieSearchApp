@@ -4,8 +4,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
 
   <ion-searchbar animated="true" [(ngModel)]="title" placeholder="Movie"></ion-searchbar>
+  <div id="container">
     <ion-button (click)="goToResults()" color="medium">Search</ion-button>
+  </div>
+
 </ion-content>
